@@ -436,6 +436,98 @@
       font-size: 0.98rem;
     }
 
+    /* ===== DEPOIMENTOS ===== */
+    .testimonials-section {
+      padding: 80px 0;
+      background: #f9f6f0;
+    }
+
+    .testimonials-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #3b332b;
+      margin-bottom: 16px;
+    }
+
+    .testimonials-subtitle {
+      text-align: center;
+      color: #6b5f53;
+      font-size: 1.05rem;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      padding: 36px 28px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid rgba(184, 155, 123, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(166, 134, 100, 0.15);
+    }
+
+    .testimonial-stars {
+      color: #d4a853;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #4a4038;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+      position: relative;
+      padding-left: 16px;
+      border-left: 3px solid #b89b7b;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #b89b7b, #d4b896);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .testimonial-info h4 {
+      font-size: 1.05rem;
+      color: #3b332b;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .testimonial-info span {
+      font-size: 0.85rem;
+      color: #8b7b6b;
+    }
+
     /* ===== CTA FINAL ===== */
     .final-cta {
       padding: 80px 0;
@@ -530,6 +622,10 @@
         font-size: 1.9rem;
       }
 
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
       .final-cta-inner {
         flex-direction: column;
         text-align: center;
@@ -572,6 +668,10 @@
         font-size: 0.95rem;
       }
 
+      .testimonial-card {
+        padding: 24px 20px;
+      }
+
       /* 
         ╔══════════════════════════════════════════════════════╗
         ║  ⭐ AJUSTE 3: TAMANHO DA LOGO NO CELULAR ⭐        ║
@@ -608,13 +708,6 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo-link" aria-label="Dra. Catarina Koa - Página inicial">
-        <!-- 
-          ⭐ NOVA LOGO ATUALIZADA ⭐
-          Link do Google Drive: 1BZKRS8lceKyEKjlAoashHYZgaWntR4r9
-          Se não carregar, o "onerror" cria um placeholder automático.
-          Para usar uma imagem local, substitua o "src" pelo caminho da sua imagem.
-          Ex: src="./minha-logo.png"
-        -->
         <img src="https://drive.google.com/thumbnail?id=1BZKRS8lceKyEKjlAoashHYZgaWntR4r9&sz=w800" 
              alt="Dra. Catarina Koa - Biomedicina e Tricologia" 
              class="logo-horizontal"
@@ -711,6 +804,120 @@
             <div class="step-number">3</div>
             <h3>Plano Personalizado</h3>
             <p>Tratamento individualizado baseado nas necessidades do seu organismo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS DE PACIENTES -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2>O que minhas pacientes dizem</h2>
+        <p class="testimonials-subtitle">Histórias reais de quem recuperou a autoestima</p>
+        
+        <div class="testimonials-grid">
+          <!-- Depoimento 1 - Ana Clara -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Depois de meses sofrendo com queda de cabelo pós-parto, achei que nunca mais voltaria ao normal. 
+              A Dra. Catarina não só identificou a causa como me acolheu de uma forma que eu nunca tinha vivido 
+              em consulta nenhuma. Hoje meu cabelo está mais forte do que antes da gravidez!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AC</div>
+              <div class="testimonial-info">
+                <h4>Ana Clara Mendes</h4>
+                <span>33 anos • São Paulo/SP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 2 - Juliana -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Eu tinha tanta vergonha das falhas no meu couro cabeludo que evitava sair de casa. 
+              A Dra. Catarina me explicou tudo com tanta paciência e conhecimento que eu finalmente 
+              entendi o que estava acontecendo. Em 4 meses de tratamento, as falhas sumiram. 
+              Me sinto outra pessoa!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JO</div>
+              <div class="testimonial-info">
+                <h4>Juliana Oliveira</h4>
+                <span>28 anos • Guarulhos/SP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 3 - Rafaela -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Passei por 3 dermatologistas que só me passavam vitaminas e nada resolvia. 
+              A Dra. Catarina foi a primeira que realmente olhou para o meu couro cabeludo com 
+              equipamento adequado e descobriu uma condição que ninguém tinha visto. 
+              Finalmente tenho resultados de verdade!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RS</div>
+              <div class="testimonial-info">
+                <h4>Rafaela dos Santos</h4>
+                <span>41 anos • Campinas/SP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 4 - Mariana -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Sempre tive cabelo oleoso e com caspa, achava que era normal. A Dra. me mostrou 
+              que não era e que tinha tratamento. Depois do diagnóstico e do plano personalizado, 
+              minha autoestima voltou. Consigo usar cabelo solto sem medo!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MC</div>
+              <div class="testimonial-info">
+                <h4>Mariana Carvalho</h4>
+                <span>26 anos • São Bernardo/SP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 5 - Patrícia -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Entrei no consultório achando que ia sair com mais uma receita de shampoo caro. 
+              Saí com um plano de tratamento completo, exames e um entendimento que nunca tive. 
+              A Dra. Catarina trata a causa, não o sintoma. Isso faz toda diferença!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">PL</div>
+              <div class="testimonial-info">
+                <h4>Patrícia Lima</h4>
+                <span>37 anos • São Paulo/SP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 6 - Fernanda -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Meu cabelo afinou muito depois dos 45 anos. Achei que era só idade e não tinha o que fazer. 
+              A Dra. Catarina me mostrou que dava para reverter com o tratamento certo. 
+              Em 6 meses recuperei o volume e até meu marido notou diferença!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">FF</div>
+              <div class="testimonial-info">
+                <h4>Fernanda Ferreira</h4>
+                <span>47 anos • Osasco/SP</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
