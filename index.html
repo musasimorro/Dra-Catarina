@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Dra. Catarina Koa | Biomedicina & Tricologia</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +23,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, .serif-title {
+    h1, h2, h3 {
       font-family: 'Playfair Display', 'Baskerville', Georgia, serif;
       font-weight: 600;
       letter-spacing: -0.3px;
@@ -40,7 +41,7 @@
       padding: 0 24px;
     }
 
-    /* ===== BOTÕES E LINKS ===== */
+    /* ===== BOTÕES ===== */
     .cta-button {
       display: inline-block;
       background-color: #b89b7b;
@@ -80,12 +81,12 @@
 
     /* ===== HEADER ===== */
     .site-header {
-      padding: 16px 0;
-      background: rgba(253, 251, 247, 0.92);
-      backdrop-filter: blur(8px);
+      padding: 12px 0;
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
       border-bottom: 1px solid rgba(184, 155, 123, 0.15);
     }
 
@@ -97,8 +98,9 @@
       gap: 16px;
     }
 
+    /* LOGO AUMENTADA */
     .logo-horizontal {
-      height: 48px;
+      height: 60px;
       width: auto;
       object-fit: contain;
     }
@@ -119,7 +121,108 @@
       box-shadow: 0 6px 18px rgba(184, 155, 123, 0.3);
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.35s ease, visibility 0.35s;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #fffbf5;
+      border-radius: 32px;
+      max-width: 420px;
+      width: 100%;
+      padding: 36px 28px;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+      border: 1px solid rgba(184,155,123,0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #b89b7b;
+      line-height: 1;
+    }
+
+    .modal-card h3 {
+      font-size: 1.8rem;
+      color: #3b332b;
+      margin-bottom: 10px;
+    }
+
+    .modal-card p {
+      color: #5e5246;
+      margin-bottom: 24px;
+      font-size: 0.98rem;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+      border: 1.5px solid #e2d6c8;
+      border-radius: 30px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      background: white;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .modal-input:focus {
+      border-color: #b89b7b;
+    }
+
+    .modal-submit {
+      width: 100%;
+      background: #b89b7b;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 14px;
+      border-radius: 40px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.3s;
+    }
+
+    .modal-submit:hover {
+      background: #a68664;
+    }
+
+    .privacy-note {
+      font-size: 0.75rem;
+      color: #9b8b7a;
+      margin-top: 16px;
+    }
+
+    /* ===== HERO ===== */
     .hero {
       padding: 60px 0 70px;
       background: linear-gradient(105deg, #faf7f2 0%, #f3ede5 100%);
@@ -144,9 +247,6 @@
       font-weight: 400;
       color: #4b4238;
       margin-bottom: 40px;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .hero .cta-button {
@@ -154,10 +254,10 @@
       padding: 18px 44px;
     }
 
-    /* ===== SEÇÃO QUEM SOU ===== */
+    /* ===== QUEM SOU ===== */
     .about-section {
       padding: 80px 0;
-      background-color: #ffffff;
+      background: #ffffff;
     }
 
     .about-grid {
@@ -180,7 +280,6 @@
       aspect-ratio: 4/5;
       box-shadow: 20px 20px 0 rgba(184, 155, 123, 0.2);
       margin: 0 auto;
-      background-color: #f0e8db;
     }
 
     .about-text {
@@ -189,10 +288,8 @@
 
     .about-text h2 {
       font-size: 2.2rem;
-      font-weight: 600;
       color: #3b332b;
       margin-bottom: 24px;
-      position: relative;
     }
 
     .about-text h2::after {
@@ -208,10 +305,9 @@
       font-size: 1.08rem;
       color: #4a4038;
       margin-bottom: 1.2rem;
-      font-weight: 400;
     }
 
-    /* ===== SINTOMAS GRID ===== */
+    /* SINTOMAS */
     .symptoms-section {
       padding: 80px 0;
       background: #f9f6f0;
@@ -236,13 +332,7 @@
       border-radius: 24px;
       text-align: center;
       box-shadow: 0 12px 28px rgba(0,0,0,0.04);
-      transition: transform 0.25s ease, box-shadow 0.3s;
       border: 1px solid rgba(184, 155, 123, 0.15);
-    }
-
-    .symptom-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 38px rgba(166, 134, 100, 0.12);
     }
 
     .symptom-icon {
@@ -253,17 +343,11 @@
 
     .symptom-card h3 {
       font-size: 1.2rem;
-      font-weight: 600;
       color: #3b332b;
       margin-bottom: 8px;
     }
 
-    .symptom-card p {
-      font-size: 0.95rem;
-      color: #5f554a;
-    }
-
-    /* ===== METODOLOGIA ===== */
+    /* METODOLOGIA */
     .methodology {
       padding: 80px 0;
       background: #ffffff;
@@ -289,8 +373,6 @@
       background: #faf7f3;
       border-radius: 30px;
       padding: 36px 22px;
-      position: relative;
-      transition: all 0.2s;
     }
 
     .step-number {
@@ -305,26 +387,13 @@
       font-weight: 700;
       font-size: 1.4rem;
       margin: 0 auto 20px;
-      font-family: 'Playfair Display', serif;
     }
 
-    .step h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: #3b332b;
-    }
-
-    .step p {
-      color: #4f463c;
-      font-size: 0.98rem;
-    }
-
-    /* ===== CTA FINAL ===== */
+    /* CTA FINAL */
     .final-cta {
       padding: 80px 0;
       background: #efe7dd;
       position: relative;
-      overflow: hidden;
     }
 
     .final-cta-inner {
@@ -333,142 +402,74 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 40px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .final-text {
-      flex: 1 1 300px;
     }
 
     .final-text h2 {
       font-size: 2.3rem;
-      font-weight: 700;
       color: #3b332b;
       margin-bottom: 16px;
     }
 
-    .final-text p {
-      font-size: 1.15rem;
-      color: #4e4338;
-      margin-bottom: 32px;
-    }
-
     .final-logo-wrapper {
-      flex: 0 0 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.3;
-      transition: opacity 0.3s;
+      flex: 0 0 160px;
+      opacity: 0.25;
     }
 
     .final-logo-wrapper img {
       width: 100%;
-      max-width: 200px;
-      object-fit: contain;
-      filter: grayscale(20%);
     }
 
-    .final-cta .cta-button {
-      background-color: #b89b7b;
-      font-size: 1.15rem;
-      padding: 16px 42px;
-    }
-
-    /* ===== FOOTER ===== */
     .site-footer {
       background: #2e2b26;
       color: #ddd6cd;
       text-align: center;
       padding: 32px 20px;
-      font-size: 0.95rem;
-      letter-spacing: 0.4px;
     }
 
-    .site-footer span {
-      color: #c7af91;
-      font-weight: 500;
-    }
-
-    /* ===== RESPONSIVO ===== */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.2rem;
       }
-
-      .hero-subtitle {
-        font-size: 1.05rem;
-      }
-
       .about-grid {
         flex-direction: column;
-        gap: 40px;
       }
-
-      .about-image img {
-        max-width: 300px;
-      }
-
-      .about-text h2 {
-        font-size: 1.9rem;
-      }
-
       .final-cta-inner {
         flex-direction: column;
         text-align: center;
       }
-
-      .final-logo-wrapper {
-        order: -1;
-        margin-bottom: 20px;
-      }
-
       .logo-horizontal {
-        height: 38px;
-      }
-
-      .header-cta {
-        padding: 8px 20px;
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 18px;
-      }
-
-      .hero h1 {
-        font-size: 1.9rem;
-      }
-
-      .cta-button {
-        padding: 14px 24px;
-        font-size: 0.95rem;
+        height: 48px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- MODAL DE CAPTURA -->
+  <div class="modal-overlay active" id="leadModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn">&times;</button>
+      <h3>Bem-vinda(o)!</h3>
+      <p>Para começarmos sua jornada de autocuidado, deixe seu nome e telefone.</p>
+      <input type="text" id="modalName" class="modal-input" placeholder="Seu nome completo" autocomplete="name">
+      <input type="tel" id="modalPhone" class="modal-input" placeholder="WhatsApp (DDD + número)" autocomplete="tel">
+      <button class="modal-submit" id="modalWhatsAppBtn">Ir para o WhatsApp</button>
+      <p class="privacy-note">Seus dados estão seguros e não serão compartilhados.</p>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <img src="https://drive.google.com/thumbnail?id=1v49T9rVcSQgKXgoNuDO9MqQWn469qQWb&sz=w400" 
+      <img src="https://drive.google.com/thumbnail?id=1v49T9rVcSQgKXgoNuDO9MqQWn469qQWb&sz=w500" 
            alt="Dra. Catarina Koa Logo Horizontal" 
            class="logo-horizontal"
-           loading="eager"
-           onerror="this.style.display='none'">
-      <a href="https://wa.me/5511915683939?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Catarina%20Koa." 
-         target="_blank" 
-         class="cta-button header-cta">
-        Agendar Consulta
-      </a>
+           loading="eager">
+      <a href="#" class="cta-button header-cta" id="headerCtaButton">Agendar Consulta</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-content">
         <h1>"Seus cabelos contam uma história.<br>Vamos entendê-la juntos?"</h1>
@@ -476,119 +477,171 @@
           Cuidado capilar individualizado, baseado em ciência, ética e respeito. 
           Recupere sua segurança e devolva sua autoestima com tratamentos avançados em Tricologia.
         </p>
-        <a href="https://wa.me/5511915683939?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Catarina%20Koa." 
-           target="_blank" 
-           class="cta-button cta-pulse whatsapp-link">
-          Quero Agendar Minha Consulta Individual
-        </a>
+        <a href="#" class="cta-button cta-pulse" id="heroCtaButton">Quero Agendar Minha Consulta Individual</a>
       </div>
     </section>
 
-    <!-- QUEM SOU EU -->
-    <section class="about-section" id="quem-sou">
+    <!-- QUEM SOU -->
+    <section class="about-section">
       <div class="container about-grid">
         <div class="about-image">
-          <img src="https://drive.google.com/thumbnail?id=1n7LChMTGIL2D1hQPFi1vPkOwz-wSEN_J&sz=w600" 
-               alt="Dra. Catarina Koa - Biomédica e Tricologista" 
-               loading="lazy"
-               onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect fill=%22%23f0e8db%22 width=%22400%22 height=%22500%22/%3E%3Ctext x=%2250%22 y=%22250%22 font-family=%22serif%22 font-size=%2220%22 fill=%22%23b89b7b%22%3EDra. Catarina Koa%3C/text%3E%3C/svg%3E'">
+          <img src="https://drive.google.com/thumbnail?id=1n7LChMTGIL2D1hQPFi1vPkOwz-wSEN_J&sz=w600" alt="Dra. Catarina Koa">
         </div>
         <div class="about-text">
           <h2>Quem sou eu</h2>
-          <p>
-            Sou a Catarina - Biomédica por formação, Tricologista por escolha. Mas, acima de tudo, 
-            sou uma pessoa movida pela curiosidade e investigação. Enquanto algumas pessoas enxergam 
-            apenas a queda de cabelo, eu enxergo um sinal de que o seu organismo está tentando comunicar algo.
-          </p>
-          <p>
-            Meu propósito é oferecer um cuidado individualizado, baseado em ciência, ética e respeito 
-            à história de cada paciente. Porque cuidar do cabelo nunca é apenas sobre o cabelo em si. 
-            É sobre recuperar a segurança. É sobre devolver a autoestima. É sobre cuidar da pessoa por inteiro.
-          </p>
+          <p>Sou a Catarina - Biomédica por formação, Tricologista por escolha. Mas, acima de tudo, sou uma pessoa movida pela curiosidade e investigação. Enquanto algumas pessoas enxergam apenas a queda de cabelo, eu enxergo um sinal de que o seu organismo está tentando comunicar algo.</p>
+          <p>Meu propósito é oferecer um cuidado individualizado, baseado em ciência, ética e respeito à história de cada paciente. Porque cuidar do cabelo nunca é apenas sobre o cabelo em si. É sobre recuperar a segurança. É sobre devolver a autoestima. É sobre cuidar da pessoa por inteiro.</p>
         </div>
       </div>
     </section>
 
-    <!-- QUANDO PROCURAR UM TRICOLOGISTA -->
+    <!-- SINTOMAS -->
     <section class="symptoms-section">
       <div class="container">
         <h2>Quando procurar um Tricologista?</h2>
         <div class="cards-grid">
-          <div class="symptom-card">
-            <div class="symptom-icon">💧</div>
-            <h3>Queda excessiva</h3>
-            <p>Fios caindo além do normal, no travesseiro ou banho.</p>
-          </div>
-          <div class="symptom-card">
-            <div class="symptom-icon">🌱</div>
-            <h3>Afinamento capilar</h3>
-            <p>Fios mais finos e ralos, perdendo volume progressivamente.</p>
-          </div>
-          <div class="symptom-card">
-            <div class="symptom-icon">🌀</div>
-            <h3>Falhas no couro cabeludo</h3>
-            <p>Áreas sem cabelo ou falhas circulares evidentes.</p>
-          </div>
-          <div class="symptom-card">
-            <div class="symptom-icon">✨</div>
-            <h3>Oleosidade extrema ou descamação</h3>
-            <p>Sebo excessivo, caspa persistente ou irritação.</p>
-          </div>
+          <div class="symptom-card"><div class="symptom-icon">💧</div><h3>Queda excessiva</h3><p>Fios caindo além do normal.</p></div>
+          <div class="symptom-card"><div class="symptom-icon">🌱</div><h3>Afinamento capilar</h3><p>Fios mais finos e ralos.</p></div>
+          <div class="symptom-card"><div class="symptom-icon">🌀</div><h3>Falhas no couro cabeludo</h3><p>Áreas sem cabelo.</p></div>
+          <div class="symptom-card"><div class="symptom-icon">✨</div><h3>Oleosidade ou descamação</h3><p>Sebo excessivo ou caspa.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA A CONSULTA -->
+    <!-- METODOLOGIA -->
     <section class="methodology">
       <div class="container">
         <h2>Como funciona a consulta</h2>
         <div class="steps-container">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Investigação Completa</h3>
-            <p>Anamnese detalhada para compreender seus hábitos, saúde e histórico.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Exame do Couro Cabeludo</h3>
-            <p>Avaliação com equipamentos específicos para diagnóstico preciso.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Plano Personalizado</h3>
-            <p>Tratamento individualizado baseado nas necessidades do seu organismo.</p>
-          </div>
+          <div class="step"><div class="step-number">1</div><h3>Investigação Completa</h3><p>Anamnese detalhada.</p></div>
+          <div class="step"><div class="step-number">2</div><h3>Exame do Couro Cabeludo</h3><p>Avaliação precisa.</p></div>
+          <div class="step"><div class="step-number">3</div><h3>Plano Personalizado</h3><p>Tratamento individualizado.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- CTA FINAL COM LOGO VERTICAL -->
+    <!-- CTA FINAL -->
     <section class="final-cta">
       <div class="container final-cta-inner">
         <div class="final-text">
           <h2>Seu cabelo merece um olhar científico e humano.</h2>
-          <p>Agende agora e comece a transformar sua relação com seus fios.</p>
-          <a href="https://wa.me/5511915683939?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Catarina%20Koa." 
-             target="_blank" 
-             class="cta-button cta-pulse">
-            Agendar Minha Consulta Agora
-          </a>
+          <p>Agende agora e transforme sua relação com seus fios.</p>
+          <a href="#" class="cta-button cta-pulse" id="finalCtaButton">Agendar Minha Consulta Agora</a>
         </div>
         <div class="final-logo-wrapper">
-          <img src="https://drive.google.com/thumbnail?id=1AFPUrKtcfvRDSgJq5HNvPpz-v1vC638&sz=w300" 
-               alt="Dra. Catarina Koa Logo Vertical" 
-               loading="lazy"
-               onerror="this.style.opacity='0.2'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23b89b7b%22 width=%22200%22 height=%22200%22 opacity=%220.3%22/%3E%3Ctext x=%2220%22 y=%22100%22 font-family=%22serif%22 font-size=%2216%22 fill=%22%233b332b%22%3ECatarina Koa%3C/text%3E%3C/svg%3E'">
+          <img src="https://drive.google.com/thumbnail?id=1AFPUrKtcfvRDSgJq5HNvPpz-v1vC638&sz=w300" alt="Logo vertical">
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <p><span>Dra. Catarina Koa</span> © Todos os direitos reservados. Biomedicina e Tricologia.</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      // Elementos do modal e inputs
+      const modal = document.getElementById('leadModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const modalName = document.getElementById('modalName');
+      const modalPhone = document.getElementById('modalPhone');
+      const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
+      
+      // Botões de CTA que disparam o modal ou WhatsApp
+      const headerCta = document.getElementById('headerCtaButton');
+      const heroCta = document.getElementById('heroCtaButton');
+      const finalCta = document.getElementById('finalCtaButton');
+      
+      // Número base do WhatsApp (sem texto adicional)
+      const whatsappNumber = '5511915683939';
+      
+      // Função para construir mensagem personalizada
+      function buildWhatsAppMessage(name, phone) {
+        let message = 'Olá! Gostaria de agendar uma consulta com a Dra. Catarina Koa.';
+        if (name && name.trim() !== '') {
+          message = `Olá! Meu nome é ${name.trim()}. Gostaria de agendar uma consulta com a Dra. Catarina Koa.`;
+        }
+        if (phone && phone.trim() !== '') {
+          message += ` Meu telefone: ${phone.trim()}.`;
+        }
+        return encodeURIComponent(message);
+      }
+      
+      // Função que redireciona para o WhatsApp usando os dados do modal
+      function goToWhatsApp() {
+        const name = modalName.value.trim();
+        const phone = modalPhone.value.trim();
+        
+        // Se não preencheu nada, ainda assim envia com mensagem padrão
+        const fullMessage = buildWhatsAppMessage(name, phone);
+        const url = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+        
+        // Fecha o modal suavemente e redireciona
+        modal.classList.remove('active');
+        window.open(url, '_blank');
+      }
+      
+      // Função para abrir o modal (caso esteja fechado) para capturar dados antes de ir ao WhatsApp
+      function openModalForCTA() {
+        // Se o modal já estiver ativo, apenas mantém.
+        if (!modal.classList.contains('active')) {
+          modal.classList.add('active');
+        }
+        // Foco no campo nome para melhor usabilidade
+        setTimeout(() => {
+          modalName.focus();
+        }, 100);
+      }
+      
+      // Evento: clique no botão do modal "Ir para o WhatsApp"
+      modalWhatsAppBtn.addEventListener('click', goToWhatsApp);
+      
+      // Evento: fechar modal pelo "X"
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+      
+      // Evento: fechar modal clicando fora do card
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+      
+      // Permitir enviar com Enter nos inputs
+      modalPhone.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          goToWhatsApp();
+        }
+      });
+      
+      // Associar todos os botões de CTA da página para abrir o modal (captura antes do WhatsApp)
+      const allCtaButtons = [headerCta, heroCta, finalCta];
+      
+      allCtaButtons.forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Se o modal já estiver ativo, apenas foca; senão, abre.
+            openModalForCTA();
+          });
+        }
+      });
+      
+      // Garantir que o modal já apareça ao carregar a página (active por padrão no HTML)
+      // Pequeno delay para foco não atrapalhar carregamento
+      window.addEventListener('load', () => {
+        if (modal.classList.contains('active')) {
+          modalName.focus();
+        }
+      });
+      
+      // Caso o usuário feche o modal sem interagir, os botões de CTA continuam abrindo o modal novamente.
+    })();
+  </script>
 </body>
 </html>
