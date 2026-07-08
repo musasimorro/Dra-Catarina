@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Dra. Catarina Koa | Biomedicina & Tricologia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #fdfbf7;
+      color: #2e2e2c;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif-title {
+      font-family: 'Playfair Display', 'Baskerville', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== BOTÕES E LINKS ===== */
+    .cta-button {
+      display: inline-block;
+      background-color: #b89b7b;
+      color: #ffffff;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(184, 155, 123, 0.3);
+      text-align: center;
+      line-height: 1.4;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .cta-button:hover {
+      background-color: #a68664;
+      box-shadow: 0 12px 28px rgba(166, 134, 100, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .cta-pulse {
+      animation: subtlePulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes subtlePulse {
+      0% { box-shadow: 0 0 0 0 rgba(184, 155, 123, 0.5); }
+      70% { box-shadow: 0 0 0 12px rgba(184, 155, 123, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(184, 155, 123, 0); }
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      padding: 16px 0;
+      background: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(184, 155, 123, 0.15);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-horizontal {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-cta {
+      font-size: 0.9rem;
+      padding: 10px 24px;
+      background-color: transparent;
+      color: #5e4b3c;
+      border: 1.5px solid #b89b7b;
+      box-shadow: none;
+      font-weight: 600;
+    }
+
+    .header-cta:hover {
+      background-color: #b89b7b;
+      color: white;
+      box-shadow: 0 6px 18px rgba(184, 155, 123, 0.3);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      padding: 60px 0 70px;
+      background: linear-gradient(105deg, #faf7f2 0%, #f3ede5 100%);
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #3b332b;
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #4b4238;
+      margin-bottom: 40px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .cta-button {
+      font-size: 1.2rem;
+      padding: 18px 44px;
+    }
+
+    /* ===== SEÇÃO QUEM SOU ===== */
+    .about-section {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .about-grid {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .about-image {
+      flex: 1 1 380px;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 28px;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+      box-shadow: 20px 20px 0 rgba(184, 155, 123, 0.2);
+      margin: 0 auto;
+      background-color: #f0e8db;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+    }
+
+    .about-text h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #3b332b;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .about-text h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: #b89b7b;
+      margin-top: 14px;
+    }
+
+    .about-text p {
+      font-size: 1.08rem;
+      color: #4a4038;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+
+    /* ===== SINTOMAS GRID ===== */
+    .symptoms-section {
+      padding: 80px 0;
+      background: #f9f6f0;
+    }
+
+    .symptoms-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #3b332b;
+      margin-bottom: 50px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 28px;
+    }
+
+    .symptom-card {
+      background: #ffffff;
+      padding: 32px 20px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      border: 1px solid rgba(184, 155, 123, 0.15);
+    }
+
+    .symptom-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 38px rgba(166, 134, 100, 0.12);
+    }
+
+    .symptom-icon {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      color: #b89b7b;
+    }
+
+    .symptom-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #3b332b;
+      margin-bottom: 8px;
+    }
+
+    .symptom-card p {
+      font-size: 0.95rem;
+      color: #5f554a;
+    }
+
+    /* ===== METODOLOGIA ===== */
+    .methodology {
+      padding: 80px 0;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .methodology h2 {
+      font-size: 2.2rem;
+      color: #3b332b;
+      margin-bottom: 56px;
+    }
+
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .step {
+      flex: 1 1 220px;
+      max-width: 280px;
+      background: #faf7f3;
+      border-radius: 30px;
+      padding: 36px 22px;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    .step-number {
+      background: #b89b7b;
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin: 0 auto 20px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #3b332b;
+    }
+
+    .step p {
+      color: #4f463c;
+      font-size: 0.98rem;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .final-cta {
+      padding: 80px 0;
+      background: #efe7dd;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-text {
+      flex: 1 1 300px;
+    }
+
+    .final-text h2 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #3b332b;
+      margin-bottom: 16px;
+    }
+
+    .final-text p {
+      font-size: 1.15rem;
+      color: #4e4338;
+      margin-bottom: 32px;
+    }
+
+    .final-logo-wrapper {
+      flex: 0 0 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+
+    .final-logo-wrapper img {
+      width: 100%;
+      max-width: 200px;
+      object-fit: contain;
+      filter: grayscale(20%);
+    }
+
+    .final-cta .cta-button {
+      background-color: #b89b7b;
+      font-size: 1.15rem;
+      padding: 16px 42px;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #2e2b26;
+      color: #ddd6cd;
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.95rem;
+      letter-spacing: 0.4px;
+    }
+
+    .site-footer span {
+      color: #c7af91;
+      font-weight: 500;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+      }
+
+      .about-grid {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .about-image img {
+        max-width: 300px;
+      }
+
+      .about-text h2 {
+        font-size: 1.9rem;
+      }
+
+      .final-cta-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .final-logo-wrapper {
+        order: -1;
+        margin-bottom: 20px;
+      }
+
+      .logo-horizontal {
+        height: 38px;
+      }
+
+      .header-cta {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .cta-button {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="https://drive.google.com/thumbnail?id=1v49T9rVcSQgKXgoNuDO9MqQWn469qQWb&sz=w400" 
+           alt="Dra. Catarina Koa Logo Horizontal" 
+           class="logo-horizontal"
+           loading="eager"
+           onerror="this.style.display='none'">
+      <a href="https://wa.me/5511915683939?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Catarina%20Koa." 
+         target="_blank" 
+         class="cta-button header-cta">
+        Agendar Consulta
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>"Seus cabelos contam uma história.<br>Vamos entendê-la juntos?"</h1>
+        <p class="hero-subtitle">
+          Cuidado capilar individualizado, baseado em ciência, ética e respeito. 
+          Recupere sua segurança e devolva sua autoestima com tratamentos avançados em Tricologia.
+        </p>
+        <a href="https://wa.me/5511915683939?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Catarina%20Koa." 
+           target="_blank" 
+           class="cta-button cta-pulse whatsapp-link">
+          Quero Agendar Minha Consulta Individual
+        </a>
+      </div>
+    </section>
+
+    <!-- QUEM SOU EU -->
+    <section class="about-section" id="quem-sou">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://drive.google.com/thumbnail?id=1n7LChMTGIL2D1hQPFi1vPkOwz-wSEN_J&sz=w600" 
+               alt="Dra. Catarina Koa - Biomédica e Tricologista" 
+               loading="lazy"
+               onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect fill=%22%23f0e8db%22 width=%22400%22 height=%22500%22/%3E%3Ctext x=%2250%22 y=%22250%22 font-family=%22serif%22 font-size=%2220%22 fill=%22%23b89b7b%22%3EDra. Catarina Koa%3C/text%3E%3C/svg%3E'">
+        </div>
+        <div class="about-text">
+          <h2>Quem sou eu</h2>
+          <p>
+            Sou a Catarina - Biomédica por formação, Tricologista por escolha. Mas, acima de tudo, 
+            sou uma pessoa movida pela curiosidade e investigação. Enquanto algumas pessoas enxergam 
+            apenas a queda de cabelo, eu enxergo um sinal de que o seu organismo está tentando comunicar algo.
+          </p>
+          <p>
+            Meu propósito é oferecer um cuidado individualizado, baseado em ciência, ética e respeito 
+            à história de cada paciente. Porque cuidar do cabelo nunca é apenas sobre o cabelo em si. 
+            É sobre recuperar a segurança. É sobre devolver a autoestima. É sobre cuidar da pessoa por inteiro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUANDO PROCURAR UM TRICOLOGISTA -->
+    <section class="symptoms-section">
+      <div class="container">
+        <h2>Quando procurar um Tricologista?</h2>
+        <div class="cards-grid">
+          <div class="symptom-card">
+            <div class="symptom-icon">💧</div>
+            <h3>Queda excessiva</h3>
+            <p>Fios caindo além do normal, no travesseiro ou banho.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-icon">🌱</div>
+            <h3>Afinamento capilar</h3>
+            <p>Fios mais finos e ralos, perdendo volume progressivamente.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-icon">🌀</div>
+            <h3>Falhas no couro cabeludo</h3>
+            <p>Áreas sem cabelo ou falhas circulares evidentes.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-icon">✨</div>
+            <h3>Oleosidade extrema ou descamação</h3>
+            <p>Sebo excessivo, caspa persistente ou irritação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA A CONSULTA -->
+    <section class="methodology">
+      <div class="container">
+        <h2>Como funciona a consulta</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Investigação Completa</h3>
+            <p>Anamnese detalhada para compreender seus hábitos, saúde e histórico.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Exame do Couro Cabeludo</h3>
+            <p>Avaliação com equipamentos específicos para diagnóstico preciso.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Plano Personalizado</h3>
+            <p>Tratamento individualizado baseado nas necessidades do seu organismo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL COM LOGO VERTICAL -->
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <div class="final-text">
+          <h2>Seu cabelo merece um olhar científico e humano.</h2>
+          <p>Agende agora e comece a transformar sua relação com seus fios.</p>
+          <a href="https://wa.me/5511915683939?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Catarina%20Koa." 
+             target="_blank" 
+             class="cta-button cta-pulse">
+            Agendar Minha Consulta Agora
+          </a>
+        </div>
+        <div class="final-logo-wrapper">
+          <img src="https://drive.google.com/thumbnail?id=1AFPUrKtcfvRDSgJq5HNvPpz-v1vC638&sz=w300" 
+               alt="Dra. Catarina Koa Logo Vertical" 
+               loading="lazy"
+               onerror="this.style.opacity='0.2'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23b89b7b%22 width=%22200%22 height=%22200%22 opacity=%220.3%22/%3E%3Ctext x=%2220%22 y=%22100%22 font-family=%22serif%22 font-size=%2216%22 fill=%22%233b332b%22%3ECatarina Koa%3C/text%3E%3C/svg%3E'">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><span>Dra. Catarina Koa</span> © Todos os direitos reservados. Biomedicina e Tricologia.</p>
+    </div>
+  </footer>
+</body>
+</html>
