@@ -79,6 +79,19 @@
       100% { box-shadow: 0 0 0 0 rgba(184, 155, 123, 0); }
     }
 
+    .btn-outline {
+      background-color: transparent;
+      color: #b89b7b;
+      border: 2px solid #b89b7b;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background-color: #b89b7b;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(184, 155, 123, 0.3);
+    }
+
     /* ===== HEADER ===== */
     .site-header {
       padding: 16px 0;
@@ -103,18 +116,10 @@
       flex-shrink: 0;
     }
 
-    /* 
-      ╔══════════════════════════════════════════════════════╗
-      ║  ⭐ AJUSTE 1: TAMANHO DA LOGO NO DESKTOP ⭐         ║
-      ║  Altere o valor de "height" abaixo (ex: 100px,     ║
-      ║  120px, 150px) para aumentar/diminuir a logo.      ║
-      ║  O "max-width" controla a largura máxima.          ║
-      ╚══════════════════════════════════════════════════════╝
-    */
     .logo-horizontal {
-      height: 100px;        /* ⬅️ ALTERE AQUI: altura da logo (está em 100px) */
+      height: 100px;
       width: auto;
-      max-width: 400px;     /* ⬅️ ALTERE AQUI: largura máxima da logo (está em 400px) */
+      max-width: 400px;
       object-fit: contain;
       display: block;
     }
@@ -136,7 +141,7 @@
       box-shadow: 0 6px 18px rgba(184, 155, 123, 0.3);
     }
 
-    /* ===== MODAL ===== */
+    /* ===== MODAIS ===== */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -184,6 +189,10 @@
       line-height: 1;
     }
 
+    .modal-close:hover {
+      color: #8b7355;
+    }
+
     .modal-card h3 {
       font-size: 1.8rem;
       color: #3b332b;
@@ -213,6 +222,38 @@
       border-color: #b89b7b;
     }
 
+    .modal-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+      border: 1.5px solid #e2d6c8;
+      border-radius: 24px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      background: white;
+      outline: none;
+      resize: none;
+      transition: border 0.2s;
+      line-height: 1.5;
+    }
+
+    .modal-textarea:focus {
+      border-color: #b89b7b;
+    }
+
+    .char-counter {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #9b8b7a;
+      margin-bottom: 16px;
+      padding-right: 8px;
+    }
+
+    .char-counter.warning {
+      color: #c0392b;
+      font-weight: 600;
+    }
+
     .modal-submit {
       width: 100%;
       background: #b89b7b;
@@ -225,10 +266,17 @@
       cursor: pointer;
       margin-top: 8px;
       transition: background 0.3s;
+      font-family: 'Raleway', sans-serif;
     }
 
     .modal-submit:hover {
       background: #a68664;
+    }
+
+    .modal-submit:disabled {
+      background: #d5c3ae;
+      cursor: not-allowed;
+      box-shadow: none;
     }
 
     .privacy-note {
@@ -328,7 +376,7 @@
       font-weight: 400;
     }
 
-    /* ===== SINTOMAS ===== */
+    /* ===== SINTOMAS (CARDS COM FLIP - ÍCONES GRANDES) ===== */
     .symptoms-section {
       padding: 80px 0;
       background: #f9f6f0;
@@ -338,46 +386,147 @@
       text-align: center;
       font-size: 2.2rem;
       color: #3b332b;
+      margin-bottom: 20px;
+    }
+
+    .symptoms-subtitle {
+      text-align: center;
+      color: #6b5f53;
+      font-size: 1rem;
       margin-bottom: 50px;
+      font-style: italic;
     }
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 28px;
+      perspective: 1000px;
     }
 
-    .symptom-card {
-      background: #ffffff;
-      padding: 32px 20px;
+    /* Cards maiores para acomodar ícones grandes */
+    .flip-card {
+      background: transparent;
+      height: 380px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
       border-radius: 24px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
       box-shadow: 0 12px 28px rgba(0,0,0,0.04);
-      transition: transform 0.25s ease, box-shadow 0.3s;
       border: 1px solid rgba(184, 155, 123, 0.15);
+      background: #ffffff;
+      text-align: center;
+      overflow: hidden;
     }
 
-    .symptom-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 38px rgba(166, 134, 100, 0.12);
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: #fdf9f3;
+      justify-content: center;
+      padding: 32px 24px;
     }
 
-    .symptom-icon {
-      font-size: 2.5rem;
-      margin-bottom: 18px;
-      color: #b89b7b;
+    /* Ícone PNG GRANDE - ocupa metade superior do card */
+    .symptom-icon-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-radius: 24px 24px 0 0;
     }
 
-    .symptom-card h3 {
-      font-size: 1.2rem;
+    /* Fallback emoji caso imagem não carregue */
+    .symptom-icon-fallback {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, #fdf9f3, #f5ede0);
+      border-radius: 24px 24px 0 0;
+    }
+
+    /* Área de texto abaixo da imagem */
+    .flip-card-front .card-text-area {
+      padding: 20px 18px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .flip-card-front h3 {
+      font-size: 1.25rem;
       font-weight: 600;
       color: #3b332b;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .symptom-card p {
-      font-size: 0.95rem;
+    .flip-card-front p {
+      font-size: 0.9rem;
       color: #5f554a;
+    }
+
+    .flip-card-back h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #3b332b;
+      margin-bottom: 16px;
+    }
+
+    .flip-card-back .back-content {
+      font-size: 0.92rem;
+      color: #4a4038;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .flip-card-back .back-content p {
+      margin-bottom: 10px;
+    }
+
+    .flip-card-back .back-content strong {
+      color: #b89b7b;
+      font-weight: 600;
+    }
+
+    .flip-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 14px;
+      font-size: 0.7rem;
+      color: #b89b7b;
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     /* ===== METODOLOGIA ===== */
@@ -528,6 +677,128 @@
       color: #8b7b6b;
     }
 
+    /* ===== FAQ ===== */
+    .faq-section {
+      padding: 80px 0 40px;
+      background: #ffffff;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #3b332b;
+      margin-bottom: 16px;
+    }
+
+    .faq-subtitle {
+      text-align: center;
+      color: #6b5f53;
+      font-size: 1.05rem;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+
+    .faq-container {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #fdf9f3;
+      border: 1px solid rgba(184, 155, 123, 0.2);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.active {
+      border-color: rgba(184, 155, 123, 0.5);
+      box-shadow: 0 8px 24px rgba(184, 155, 123, 0.12);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #3b332b;
+      text-align: left;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: #b89b7b;
+    }
+
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-arrow::before,
+    .faq-arrow::after {
+      content: '';
+      position: absolute;
+      background: #b89b7b;
+      border-radius: 2px;
+    }
+
+    .faq-arrow::before {
+      width: 10px;
+      height: 2px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .faq-arrow::after {
+      width: 2px;
+      height: 10px;
+      top: 0;
+      left: 8px;
+    }
+
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-content {
+      padding: 0 24px 20px;
+      font-size: 0.95rem;
+      color: #4a4038;
+      line-height: 1.7;
+    }
+
+    .faq-cta-wrapper {
+      text-align: center;
+      margin-top: 36px;
+      padding-bottom: 40px;
+    }
+
     /* ===== CTA FINAL ===== */
     .final-cta {
       padding: 80px 0;
@@ -591,7 +862,6 @@
       text-align: center;
       padding: 32px 20px;
       font-size: 0.95rem;
-      letter-spacing: 0.4px;
     }
 
     .site-footer span {
@@ -601,92 +871,33 @@
 
     /* ===== RESPONSIVO ===== */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.05rem;
-      }
-
-      .about-grid {
-        flex-direction: column;
-        gap: 40px;
-      }
-
-      .about-image img {
-        max-width: 300px;
-      }
-
-      .about-text h2 {
-        font-size: 1.9rem;
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .final-cta-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .final-logo-wrapper {
-        order: -1;
-        margin-bottom: 20px;
-      }
-
-      /* 
-        ╔══════════════════════════════════════════════════════╗
-        ║  ⭐ AJUSTE 2: TAMANHO DA LOGO NO TABLET ⭐         ║
-        ║  Altere o valor de "height" abaixo para ajustar   ║
-        ║  o tamanho da logo em telas médias (tablets).     ║
-        ╚══════════════════════════════════════════════════════╝
-      */
-      .logo-horizontal {
-        height: 75px;       /* ⬅️ ALTERE AQUI: altura da logo em tablet (está em 75px) */
-        max-width: 300px;   /* ⬅️ ALTERE AQUI: largura máxima em tablet (está em 300px) */
-      }
-
-      .header-cta {
-        padding: 10px 22px;
-        font-size: 0.85rem;
-      }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .about-grid { flex-direction: column; gap: 40px; }
+      .about-image img { max-width: 300px; }
+      .about-text h2 { font-size: 1.9rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .final-cta-inner { flex-direction: column; text-align: center; }
+      .final-logo-wrapper { order: -1; margin-bottom: 20px; }
+      .logo-horizontal { height: 75px; max-width: 300px; }
+      .header-cta { padding: 10px 22px; font-size: 0.85rem; }
+      .flip-card { height: 360px; }
+      .symptom-icon-img { height: 160px; }
+      .symptom-icon-fallback { height: 160px; font-size: 4rem; }
+      .faq-question { font-size: 0.98rem; padding: 18px 20px; }
     }
 
     @media (max-width: 480px) {
-      .container {
-        padding: 0 18px;
-      }
-
-      .hero h1 {
-        font-size: 1.9rem;
-      }
-
-      .cta-button {
-        padding: 14px 24px;
-        font-size: 0.95rem;
-      }
-
-      .testimonial-card {
-        padding: 24px 20px;
-      }
-
-      /* 
-        ╔══════════════════════════════════════════════════════╗
-        ║  ⭐ AJUSTE 3: TAMANHO DA LOGO NO CELULAR ⭐        ║
-        ║  Altere o valor de "height" abaixo para ajustar   ║
-        ║  o tamanho da logo em telas pequenas (celulares). ║
-        ╚══════════════════════════════════════════════════════╝
-      */
-      .logo-horizontal {
-        height: 65px;       /* ⬅️ ALTERE AQUI: altura da logo no celular (está em 65px) */
-        max-width: 240px;   /* ⬅️ ALTERE AQUI: largura máxima no celular (está em 240px) */
-      }
-
-      .header-inner {
-        gap: 12px;
-      }
+      .container { padding: 0 18px; }
+      .hero h1 { font-size: 1.9rem; }
+      .cta-button { padding: 14px 24px; font-size: 0.95rem; }
+      .testimonial-card { padding: 24px 20px; }
+      .logo-horizontal { height: 65px; max-width: 240px; }
+      .header-inner { gap: 12px; }
+      .flip-card { height: 340px; }
+      .symptom-icon-img { height: 150px; }
+      .symptom-icon-fallback { height: 150px; font-size: 3.5rem; }
+      .faq-question { font-size: 0.92rem; padding: 16px 18px; }
     }
   </style>
 </head>
@@ -694,7 +905,7 @@
   <!-- MODAL DE CAPTURA -->
   <div class="modal-overlay active" id="leadModal">
     <div class="modal-card">
-      <button class="modal-close" id="closeModalBtn">&times;</button>
+      <button class="modal-close" id="closeLeadModalBtn">&times;</button>
       <h3>Bem-vinda(o)!</h3>
       <p>Para começarmos sua jornada de autocuidado, deixe seu nome e telefone.</p>
       <input type="text" id="modalName" class="modal-input" placeholder="Seu nome completo" autocomplete="name">
@@ -704,22 +915,36 @@
     </div>
   </div>
 
-  <!-- HEADER COM NOVA LOGO -->
+  <!-- MODAL DE PERGUNTA -->
+  <div class="modal-overlay" id="questionModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeQuestionModalBtn">&times;</button>
+      <h3>Envie sua pergunta</h3>
+      <p>A Dra. Catarina responderá via WhatsApp o mais breve possível.</p>
+      <input type="text" id="questionName" class="modal-input" placeholder="Seu nome completo">
+      <input type="tel" id="questionPhone" class="modal-input" placeholder="WhatsApp (DDD + número)">
+      <textarea id="questionText" class="modal-textarea" placeholder="Digite sua dúvida (até 150 caracteres)" maxlength="150" rows="3"></textarea>
+      <div class="char-counter" id="charCounter">0 / 150 caracteres</div>
+      <button class="modal-submit" id="questionSubmitBtn" disabled>Enviar Pergunta via WhatsApp</button>
+      <p class="privacy-note">Sua pergunta será respondida diretamente no WhatsApp.</p>
+    </div>
+  </div>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo-link" aria-label="Dra. Catarina Koa - Página inicial">
         <img src="https://drive.google.com/thumbnail?id=1BZKRS8lceKyEKjlAoashHYZgaWntR4r9&sz=w800" 
-             alt="Dra. Catarina Koa - Biomedicina e Tricologia" 
+             alt="Dra. Catarina Koa" 
              class="logo-horizontal"
-             loading="eager"
-             onerror="this.style.minWidth='200px'; this.style.background='#f0e8db'; this.style.borderRadius='8px';">
+             loading="eager">
       </a>
       <a href="#" class="cta-button header-cta" id="headerCtaButton">Agendar Consulta</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-content">
         <h1>"Seus cabelos contam uma história.<br>Vamos entendê-la juntos?"</h1>
@@ -731,199 +956,181 @@
       </div>
     </section>
 
-    <!-- QUEM SOU EU -->
+    <!-- QUEM SOU -->
     <section class="about-section" id="quem-sou">
       <div class="container about-grid">
         <div class="about-image">
-          <img src="https://drive.google.com/thumbnail?id=1n7LChMTGIL2D1hQPFi1vPkOwz-wSEN_J&sz=w600" 
-               alt="Dra. Catarina Koa - Biomédica e Tricologista" 
-               loading="lazy"
-               onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect fill=%22%23f0e8db%22 width=%22400%22 height=%22500%22/%3E%3Ctext x=%2250%22 y=%22250%22 font-family=%22serif%22 font-size=%2220%22 fill=%22%23b89b7b%22%3EDra. Catarina Koa%3C/text%3E%3C/svg%3E'">
+          <img src="https://drive.google.com/thumbnail?id=1n7LChMTGIL2D1hQPFi1vPkOwz-wSEN_J&sz=w600" alt="Dra. Catarina Koa">
         </div>
         <div class="about-text">
           <h2>Quem sou eu</h2>
-          <p>
-            Sou a Catarina - Biomédica por formação, Tricologista por escolha. Mas, acima de tudo, 
-            sou uma pessoa movida pela curiosidade e investigação. Enquanto algumas pessoas enxergam 
-            apenas a queda de cabelo, eu enxergo um sinal de que o seu organismo está tentando comunicar algo.
-          </p>
-          <p>
-            Meu propósito é oferecer um cuidado individualizado, baseado em ciência, ética e respeito 
-            à história de cada paciente. Porque cuidar do cabelo nunca é apenas sobre o cabelo em si. 
-            É sobre recuperar a segurança. É sobre devolver a autoestima. É sobre cuidar da pessoa por inteiro.
-          </p>
+          <p>Sou a Catarina - Biomédica por formação, Tricologista por escolha. Mas, acima de tudo, sou uma pessoa movida pela curiosidade e investigação. Enquanto algumas pessoas enxergam apenas a queda de cabelo, eu enxergo um sinal de que o seu organismo está tentando comunicar algo.</p>
+          <p>Meu propósito é oferecer um cuidado individualizado, baseado em ciência, ética e respeito à história de cada paciente. Porque cuidar do cabelo nunca é apenas sobre o cabelo em si. É sobre recuperar a segurança. É sobre devolver a autoestima. É sobre cuidar da pessoa por inteiro.</p>
         </div>
       </div>
     </section>
 
-    <!-- QUANDO PROCURAR UM TRICOLOGISTA -->
+    <!-- SINTOMAS COM ÍCONES GRANDES -->
     <section class="symptoms-section">
       <div class="container">
         <h2>Quando procurar um Tricologista?</h2>
+        <p class="symptoms-subtitle">Toque nos cards para entender cada sinal</p>
+        
         <div class="cards-grid">
-          <div class="symptom-card">
-            <div class="symptom-icon">💧</div>
-            <h3>Queda excessiva</h3>
-            <p>Fios caindo além do normal, no travesseiro ou banho.</p>
+          <!-- Card 1: Queda excessiva -->
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/queda%20de%20Cabelo.png" 
+                     alt="Queda de Cabelo" 
+                     class="symptom-icon-img"
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="symptom-icon-fallback" style="display:none;">💧</div>
+                <div class="card-text-area">
+                  <h3>Queda excessiva</h3>
+                  <p>Fios caindo além do normal, no travesseiro ou banho.</p>
+                  <span class="flip-hint">↻ veja mais</span>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h4>🔍 O que está por trás?</h4>
+                <div class="back-content">
+                  <p><strong>Causas comuns:</strong> Estresse, pós-parto, alterações na tireoide, deficiência de ferro ou biotina.</p>
+                  <p><strong>Exemplo:</strong> "Perdi muito cabelo depois de uma fase estressante e notei tufos no chuveiro."</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="symptom-card">
-            <div class="symptom-icon">🌱</div>
-            <h3>Afinamento capilar</h3>
-            <p>Fios mais finos e ralos, perdendo volume progressivamente.</p>
+
+          <!-- Card 2: Afinamento capilar -->
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/afinamento%20capilar.png" 
+                     alt="Afinamento Capilar" 
+                     class="symptom-icon-img"
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="symptom-icon-fallback" style="display:none;">🌱</div>
+                <div class="card-text-area">
+                  <h3>Afinamento capilar</h3>
+                  <p>Fios mais finos e ralos, perdendo volume progressivamente.</p>
+                  <span class="flip-hint">↻ veja mais</span>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h4>🔍 O que está por trás?</h4>
+                <div class="back-content">
+                  <p><strong>Causas comuns:</strong> Alopecia androgenética, envelhecimento capilar, uso de químicas agressivas.</p>
+                  <p><strong>Exemplo:</strong> "Meu rabo de cavalo foi ficando cada vez mais fino."</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="symptom-card">
-            <div class="symptom-icon">🌀</div>
-            <h3>Falhas no couro cabeludo</h3>
-            <p>Áreas sem cabelo ou falhas circulares evidentes.</p>
+
+          <!-- Card 3: Falhas no couro cabeludo -->
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/falhas%20no%20couro%20cabeludo.png" 
+                     alt="Falhas no Couro Cabeludo" 
+                     class="symptom-icon-img"
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="symptom-icon-fallback" style="display:none;">🌀</div>
+                <div class="card-text-area">
+                  <h3>Falhas no couro cabeludo</h3>
+                  <p>Áreas sem cabelo ou falhas circulares evidentes.</p>
+                  <span class="flip-hint">↻ veja mais</span>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h4>🔍 O que está por trás?</h4>
+                <div class="back-content">
+                  <p><strong>Causas comuns:</strong> Alopecia areata (autoimune), tração por tranças apertadas, infecções fúngicas.</p>
+                  <p><strong>Exemplo:</strong> "Acordei com uma falha redonda atrás da cabeça."</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="symptom-card">
-            <div class="symptom-icon">✨</div>
-            <h3>Oleosidade extrema ou descamação</h3>
-            <p>Sebo excessivo, caspa persistente ou irritação.</p>
+
+          <!-- Card 4: Oleosidade ou descamação -->
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/oleosidade%20extrema%20ou%20descama%C3%A7ao.png" 
+                     alt="Oleosidade ou Descamação" 
+                     class="symptom-icon-img"
+                     loading="lazy"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="symptom-icon-fallback" style="display:none;">✨</div>
+                <div class="card-text-area">
+                  <h3>Oleosidade ou descamação</h3>
+                  <p>Sebo excessivo, caspa persistente ou irritação.</p>
+                  <span class="flip-hint">↻ veja mais</span>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h4>🔍 O que está por trás?</h4>
+                <div class="back-content">
+                  <p><strong>Causas comuns:</strong> Dermatite seborreica, proliferação de fungos, reação a produtos inadequados.</p>
+                  <p><strong>Exemplo:</strong> "Lavava o cabelo de manhã e à tarde já estava oleoso."</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA A CONSULTA -->
+    <!-- METODOLOGIA -->
     <section class="methodology">
       <div class="container">
         <h2>Como funciona a consulta</h2>
         <div class="steps-container">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Investigação Completa</h3>
-            <p>Anamnese detalhada para compreender seus hábitos, saúde e histórico.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Exame do Couro Cabeludo</h3>
-            <p>Avaliação com equipamentos específicos para diagnóstico preciso.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Plano Personalizado</h3>
-            <p>Tratamento individualizado baseado nas necessidades do seu organismo.</p>
-          </div>
+          <div class="step"><div class="step-number">1</div><h3>Investigação Completa</h3><p>Anamnese detalhada para compreender seus hábitos, saúde e histórico.</p></div>
+          <div class="step"><div class="step-number">2</div><h3>Exame do Couro Cabeludo</h3><p>Avaliação com equipamentos específicos para diagnóstico preciso.</p></div>
+          <div class="step"><div class="step-number">3</div><h3>Plano Personalizado</h3><p>Tratamento individualizado baseado nas necessidades do seu organismo.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- DEPOIMENTOS DE PACIENTES -->
+    <!-- DEPOIMENTOS -->
     <section class="testimonials-section">
       <div class="container">
-        <h2>O que minhas pacientes dizem</h2>
+        <h2>O que meus pacientes dizem</h2>
         <p class="testimonials-subtitle">Histórias reais de quem recuperou a autoestima</p>
-        
         <div class="testimonials-grid">
-          <!-- Depoimento 1 - Ana Clara -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Depois de meses sofrendo com queda de cabelo pós-parto, achei que nunca mais voltaria ao normal. 
-              A Dra. Catarina não só identificou a causa como me acolheu de uma forma que eu nunca tinha vivido 
-              em consulta nenhuma. Hoje meu cabelo está mais forte do que antes da gravidez!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">AC</div>
-              <div class="testimonial-info">
-                <h4>Ana Clara Mendes</h4>
-                <span>33 anos • São Paulo/SP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 2 - Juliana -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Eu tinha tanta vergonha das falhas no meu couro cabeludo que evitava sair de casa. 
-              A Dra. Catarina me explicou tudo com tanta paciência e conhecimento que eu finalmente 
-              entendi o que estava acontecendo. Em 4 meses de tratamento, as falhas sumiram. 
-              Me sinto outra pessoa!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">JO</div>
-              <div class="testimonial-info">
-                <h4>Juliana Oliveira</h4>
-                <span>28 anos • Guarulhos/SP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 3 - Rafaela -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Passei por 3 dermatologistas que só me passavam vitaminas e nada resolvia. 
-              A Dra. Catarina foi a primeira que realmente olhou para o meu couro cabeludo com 
-              equipamento adequado e descobriu uma condição que ninguém tinha visto. 
-              Finalmente tenho resultados de verdade!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">RS</div>
-              <div class="testimonial-info">
-                <h4>Rafaela dos Santos</h4>
-                <span>41 anos • Campinas/SP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 4 - Mariana -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Sempre tive cabelo oleoso e com caspa, achava que era normal. A Dra. me mostrou 
-              que não era e que tinha tratamento. Depois do diagnóstico e do plano personalizado, 
-              minha autoestima voltou. Consigo usar cabelo solto sem medo!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">MC</div>
-              <div class="testimonial-info">
-                <h4>Mariana Carvalho</h4>
-                <span>26 anos • São Bernardo/SP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 5 - Patrícia -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Entrei no consultório achando que ia sair com mais uma receita de shampoo caro. 
-              Saí com um plano de tratamento completo, exames e um entendimento que nunca tive. 
-              A Dra. Catarina trata a causa, não o sintoma. Isso faz toda diferença!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">PL</div>
-              <div class="testimonial-info">
-                <h4>Patrícia Lima</h4>
-                <span>37 anos • São Paulo/SP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Depoimento 6 - Fernanda -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Meu cabelo afinou muito depois dos 45 anos. Achei que era só idade e não tinha o que fazer. 
-              A Dra. Catarina me mostrou que dava para reverter com o tratamento certo. 
-              Em 6 meses recuperei o volume e até meu marido notou diferença!"
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">FF</div>
-              <div class="testimonial-info">
-                <h4>Fernanda Ferreira</h4>
-                <span>47 anos • Osasco/SP</span>
-              </div>
-            </div>
-          </div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Depois dos 30, comecei a notar falhas na barba e queda de cabelo. A Dra. Catarina foi a única que investigou a fundo."</p><div class="testimonial-author"><div class="testimonial-avatar">CM</div><div class="testimonial-info"><h4>Carlos M.</h4><span>35 anos • Moema/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Sofri anos com caspa e coceira. A consulta com a Dra. mudou tudo: diagnóstico preciso e tratamento simples."</p><div class="testimonial-author"><div class="testimonial-avatar">RS</div><div class="testimonial-info"><h4>Ricardo S.</h4><span>42 anos • Brooklin/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Com 27 anos comecei a ver meu cabelo ralear. A Dra. mostrou que era possível tratar."</p><div class="testimonial-author"><div class="testimonial-avatar">ER</div><div class="testimonial-info"><h4>Eduardo R.</h4><span>29 anos • Vila Nova Conceição/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Tive alopecia areata e fiquei desesperada. Ela acolheu minhas angústias e montou um plano individualizado."</p><div class="testimonial-author"><div class="testimonial-avatar">FA</div><div class="testimonial-info"><h4>Fernanda A.</h4><span>31 anos • Indianópolis/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Queda capilar pós-parto me deixou muito abalada. Hoje meu cabelo está mais cheio do que antes."</p><div class="testimonial-author"><div class="testimonial-avatar">JP</div><div class="testimonial-info"><h4>Juliana P.</h4><span>38 anos • Campo Belo/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Na menopausa, perdi muito volume. A Dra. investigou a fundo. Me sinto cuidada de verdade."</p><div class="testimonial-author"><div class="testimonial-avatar">ML</div><div class="testimonial-info"><h4>Mariana L.</h4><span>45 anos • Planalto Paulista/SP</span></div></div></div>
         </div>
       </div>
     </section>
 
-    <!-- CTA FINAL COM LOGO VERTICAL -->
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <h2>Perguntas Frequentes</h2>
+        <p class="faq-subtitle">Tire suas dúvidas sobre tricologia e tratamentos capilares</p>
+        <div class="faq-container">
+          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Qual a diferença entre dermatologista e tricologista?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">O dermatologista trata da pele, cabelos e unhas de forma ampla. Já o tricologista é um especialista exclusivamente focado no couro cabeludo e nos fios capilares, usando equipamentos como tricoscópio.</div></div></div>
+          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Em quanto tempo vejo resultados no tratamento?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Os primeiros resultados costumam aparecer entre 3 e 4 meses de tratamento consistente. A queda reduz primeiro, e o crescimento visível de novos fios vem depois.</div></div></div>
+          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Queda de cabelo tem cura definitiva?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Depende da causa. Eflúvio telógeno tem recuperação completa. Já condições genéticas são controladas com tratamento contínuo.</div></div></div>
+          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Preciso levar exames na primeira consulta?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Não é obrigatório, mas ajuda. Se tiver exames recentes (hemograma, ferritina, vitamina D, B12, zinco), traga no dia.</div></div></div>
+          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Homens também podem fazer tratamento?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Sim! Calvície masculina, falhas na barba e caspa são queixas comuns. O tratamento é individualizado e tão eficaz quanto para mulheres.</div></div></div>
+        </div>
+        <div class="faq-cta-wrapper">
+          <button class="cta-button btn-outline" id="openQuestionModalBtn">✉️ Enviar Minha Pergunta</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
     <section class="final-cta">
       <div class="container final-cta-inner">
         <div class="final-text">
@@ -932,116 +1139,101 @@
           <a href="#" class="cta-button cta-pulse" id="finalCtaButton">Agendar Minha Consulta Agora</a>
         </div>
         <div class="final-logo-wrapper">
-          <img src="https://drive.google.com/thumbnail?id=1AFPUrKtcfvRDSgJq5HNvPpz-v1vC638&sz=w300" 
-               alt="Dra. Catarina Koa Logo Vertical" 
-               loading="lazy"
-               onerror="this.style.opacity='0.2'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23b89b7b%22 width=%22200%22 height=%22200%22 opacity=%220.3%22/%3E%3Ctext x=%2220%22 y=%22100%22 font-family=%22serif%22 font-size=%2216%22 fill=%22%233b332b%22%3ECatarina Koa%3C/text%3E%3C/svg%3E'">
+          <img src="https://drive.google.com/thumbnail?id=1AFPUrKtcfvRDSgJq5HNvPpz-v1vC638&sz=w300" alt="Logo Vertical">
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container">
-      <p><span>Dra. Catarina Koa</span> © Todos os direitos reservados. Biomedicina e Tricologia.</p>
-    </div>
+    <div class="container"><p><span>Dra. Catarina Koa</span> © Todos os direitos reservados. Biomedicina e Tricologia.</p></div>
   </footer>
 
   <script>
     (function() {
-      // Elementos do modal e inputs
-      const modal = document.getElementById('leadModal');
-      const closeBtn = document.getElementById('closeModalBtn');
+      const leadModal = document.getElementById('leadModal');
+      const closeLeadBtn = document.getElementById('closeLeadModalBtn');
       const modalName = document.getElementById('modalName');
       const modalPhone = document.getElementById('modalPhone');
       const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
       
-      // Botões de CTA
+      const questionModal = document.getElementById('questionModal');
+      const closeQuestionBtn = document.getElementById('closeQuestionModalBtn');
+      const openQuestionBtn = document.getElementById('openQuestionModalBtn');
+      const questionName = document.getElementById('questionName');
+      const questionPhone = document.getElementById('questionPhone');
+      const questionText = document.getElementById('questionText');
+      const questionSubmitBtn = document.getElementById('questionSubmitBtn');
+      const charCounter = document.getElementById('charCounter');
+      
       const headerCta = document.getElementById('headerCtaButton');
       const heroCta = document.getElementById('heroCtaButton');
       const finalCta = document.getElementById('finalCtaButton');
       
-      // Número do WhatsApp
       const whatsappNumber = '5511915683939';
       
-      // Função para construir mensagem personalizada
       function buildWhatsAppMessage(name, phone) {
-        let message = 'Olá! Gostaria de agendar uma consulta com a Dra. Catarina Koa.';
-        if (name && name.trim() !== '') {
-          message = `Olá! Meu nome é ${name.trim()}. Gostaria de agendar uma consulta com a Dra. Catarina Koa.`;
-        }
-        if (phone && phone.trim() !== '') {
-          message += ` Meu telefone: ${phone.trim()}.`;
-        }
-        return encodeURIComponent(message);
+        let m = 'Olá! Gostaria de agendar uma consulta com a Dra. Catarina Koa.';
+        if (name && name.trim()) m = `Olá! Meu nome é ${name.trim()}. Gostaria de agendar uma consulta com a Dra. Catarina Koa.`;
+        if (phone && phone.trim()) m += ` Meu telefone: ${phone.trim()}.`;
+        return encodeURIComponent(m);
       }
       
-      // Função que redireciona para o WhatsApp
+      function buildQuestionMessage(name, phone, q) {
+        let m = `Olá! Meu nome é ${name.trim()}. Tenho uma dúvida: "${q.trim()}"`;
+        if (phone && phone.trim()) m += ` Meu WhatsApp: ${phone.trim()}.`;
+        return encodeURIComponent(m);
+      }
+      
       function goToWhatsApp() {
-        const name = modalName.value.trim();
-        const phone = modalPhone.value.trim();
-        
-        const fullMessage = buildWhatsAppMessage(name, phone);
-        const url = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
-        
-        // Fecha o modal e redireciona
-        modal.classList.remove('active');
+        const url = `https://wa.me/${whatsappNumber}?text=${buildWhatsAppMessage(modalName.value, modalPhone.value)}`;
+        leadModal.classList.remove('active');
         window.open(url, '_blank');
       }
       
-      // Função para abrir o modal
-      function openModalForCTA() {
-        if (!modal.classList.contains('active')) {
-          modal.classList.add('active');
-        }
-        setTimeout(() => {
-          modalName.focus();
-        }, 100);
-      }
-      
-      // Evento: clique no botão do modal
       modalWhatsAppBtn.addEventListener('click', goToWhatsApp);
+      closeLeadBtn.addEventListener('click', () => leadModal.classList.remove('active'));
+      leadModal.addEventListener('click', (e) => { if (e.target === leadModal) leadModal.classList.remove('active'); });
+      modalPhone.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); goToWhatsApp(); } });
       
-      // Evento: fechar modal pelo "X"
-      closeBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
+      openQuestionBtn.addEventListener('click', () => { questionModal.classList.add('active'); setTimeout(() => questionName.focus(), 100); });
+      closeQuestionBtn.addEventListener('click', () => { questionModal.classList.remove('active'); });
+      questionModal.addEventListener('click', (e) => { if (e.target === questionModal) questionModal.classList.remove('active'); });
+      
+      questionText.addEventListener('input', function() {
+        const l = this.value.length;
+        charCounter.textContent = l + ' / 150 caracteres';
+        charCounter.classList.toggle('warning', l >= 140);
+        questionSubmitBtn.disabled = !(questionName.value.trim() && questionPhone.value.trim() && this.value.trim().length >= 10);
       });
       
-      // Evento: fechar modal clicando fora do card
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-        }
+      questionName.addEventListener('input', () => questionText.dispatchEvent(new Event('input')));
+      questionPhone.addEventListener('input', () => questionText.dispatchEvent(new Event('input')));
+      
+      questionSubmitBtn.addEventListener('click', () => {
+        const url = `https://wa.me/${whatsappNumber}?text=${buildQuestionMessage(questionName.value, questionPhone.value, questionText.value)}`;
+        questionModal.classList.remove('active');
+        window.open(url, '_blank');
       });
       
-      // Permitir enviar com Enter no campo de telefone
-      modalPhone.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          goToWhatsApp();
-        }
+      [headerCta, heroCta, finalCta].forEach(btn => {
+        if (btn) btn.addEventListener('click', (e) => { e.preventDefault(); leadModal.classList.add('active'); });
       });
       
-      // Associar todos os botões de CTA para abrir o modal
-      const allCtaButtons = [headerCta, heroCta, finalCta];
-      
-      allCtaButtons.forEach(btn => {
-        if (btn) {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModalForCTA();
-          });
-        }
-      });
-      
-      // Foco no campo nome ao carregar a página
-      window.addEventListener('load', () => {
-        if (modal.classList.contains('active')) {
-          modalName.focus();
-        }
+      window.addEventListener('load', () => { if (leadModal.classList.contains('active')) modalName.focus(); });
+
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', function() {
+          document.querySelectorAll('.flip-card').forEach(c => { if (c !== this) c.classList.remove('flipped'); });
+        });
       });
     })();
+
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); });
+      item.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
