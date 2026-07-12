@@ -376,7 +376,7 @@
       font-weight: 400;
     }
 
-    /* ===== SINTOMAS (IMAGEM INTEIRA + TÍTULO SOBREPOSTO) ===== */
+    /* ===== SINTOMAS ===== */
     .symptoms-section {
       padding: 80px 0;
       background: #f9f6f0;
@@ -434,7 +434,6 @@
       overflow: hidden;
     }
 
-    /* FRENTE: Imagem ocupa 100% do card */
     .flip-card-front {
       background: #ffffff;
       display: flex;
@@ -468,7 +467,6 @@
       background: linear-gradient(135deg, #fdf9f3, #f5ede0);
     }
 
-    /* Título sobreposto na parte inferior */
     .flip-card-front .card-title-overlay {
       position: absolute;
       bottom: 0;
@@ -488,7 +486,6 @@
       text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
 
-    /* VERSO */
     .flip-card-back {
       transform: rotateY(180deg);
       background: #fdf9f3;
@@ -791,7 +788,7 @@
     }
 
     .faq-item.active .faq-answer {
-      max-height: 300px;
+      max-height: 400px;
     }
 
     .faq-answer-content {
@@ -946,7 +943,7 @@
              class="logo-horizontal"
              loading="eager">
       </a>
-      <a href="#" class="cta-button header-cta" id="headerCtaButton">Agendar Consulta</a>
+      <a href="#" class="cta-button header-cta" id="headerCtaButton">Agendar Avaliação</a>
     </div>
   </header>
 
@@ -959,7 +956,7 @@
           Cuidado capilar individualizado, baseado em ciência, ética e respeito. 
           Recupere sua segurança e devolva sua autoestima com tratamentos avançados em Tricologia.
         </p>
-        <a href="#" class="cta-button cta-pulse" id="heroCtaButton">Quero Agendar Minha Consulta Individual</a>
+        <a href="#" class="cta-button cta-pulse" id="heroCtaButton">Quero Agendar Minha Avaliação Individual</a>
       </div>
     </section>
 
@@ -977,14 +974,13 @@
       </div>
     </section>
 
-    <!-- SINTOMAS (IMAGEM INTEIRA + TÍTULO SOBREPOSTO) -->
+    <!-- SINTOMAS -->
     <section class="symptoms-section">
       <div class="container">
         <h2>Quando procurar um Tricologista?</h2>
         <p class="symptoms-subtitle">Toque nos cards para entender cada sinal</p>
         
         <div class="cards-grid">
-          <!-- Card 1: Queda excessiva -->
           <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
               <div class="flip-card-front">
@@ -992,87 +988,52 @@
                   <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/queda%20de%20Cabelo.png" alt="Queda de Cabelo" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
                   <div class="symptom-icon-fallback" style="display:none;">💧</div>
                 </div>
-                <div class="card-title-overlay">
-                  <h3>Queda excessiva</h3>
-                </div>
+                <div class="card-title-overlay"><h3>Queda excessiva</h3></div>
                 <span class="flip-hint">↻ toque para ver</span>
               </div>
-              <div class="flip-card-back">
-                <h4>🔍 O que está por trás?</h4>
-                <div class="back-content">
-                  <p><strong>Causas:</strong> Estresse, pós-parto, tireoide, deficiência de ferro.</p>
-                  <p><strong>Exemplo:</strong> "Perdi muito cabelo depois de uma fase estressante."</p>
-                </div>
-              </div>
+              <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Estresse, pós-parto, tireoide, deficiência de ferro.</p><p><strong>Exemplo:</strong> "Perdi muito cabelo depois de uma fase estressante."</p></div></div>
             </div>
           </div>
 
-          <!-- Card 2: Afinamento capilar -->
           <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div class="symptom-image-wrapper">
-                  <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/afinamento%20capilar.png" alt="Afinamento Capilar" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
+                  <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/afinamento%20capilar.png" alt="Afinamento" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
                   <div class="symptom-icon-fallback" style="display:none;">🌱</div>
                 </div>
-                <div class="card-title-overlay">
-                  <h3>Afinamento capilar</h3>
-                </div>
+                <div class="card-title-overlay"><h3>Afinamento capilar</h3></div>
                 <span class="flip-hint">↻ toque para ver</span>
               </div>
-              <div class="flip-card-back">
-                <h4>🔍 O que está por trás?</h4>
-                <div class="back-content">
-                  <p><strong>Causas:</strong> Alopecia androgenética, envelhecimento, químicas.</p>
-                  <p><strong>Exemplo:</strong> "Meu rabo de cavalo foi ficando cada vez mais fino."</p>
-                </div>
-              </div>
+              <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Alopecia androgenética, envelhecimento, químicas.</p><p><strong>Exemplo:</strong> "Meu rabo de cavalo foi ficando cada vez mais fino."</p></div></div>
             </div>
           </div>
 
-          <!-- Card 3: Falhas no couro cabeludo -->
           <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div class="symptom-image-wrapper">
-                  <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/falhas%20no%20couro%20cabeludo.png" alt="Falhas no Couro Cabeludo" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
+                  <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/falhas%20no%20couro%20cabeludo.png" alt="Falhas" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
                   <div class="symptom-icon-fallback" style="display:none;">🌀</div>
                 </div>
-                <div class="card-title-overlay">
-                  <h3>Falhas no couro cabeludo</h3>
-                </div>
+                <div class="card-title-overlay"><h3>Falhas no couro cabeludo</h3></div>
                 <span class="flip-hint">↻ toque para ver</span>
               </div>
-              <div class="flip-card-back">
-                <h4>🔍 O que está por trás?</h4>
-                <div class="back-content">
-                  <p><strong>Causas:</strong> Alopecia areata, tração, fungos.</p>
-                  <p><strong>Exemplo:</strong> "Acordei com uma falha redonda."</p>
-                </div>
-              </div>
+              <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Alopecia areata, tração, fungos.</p><p><strong>Exemplo:</strong> "Acordei com uma falha redonda."</p></div></div>
             </div>
           </div>
 
-          <!-- Card 4: Oleosidade ou descamação -->
           <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <div class="symptom-image-wrapper">
-                  <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/oleosidade%20extrema%20ou%20descama%C3%A7ao.png" alt="Oleosidade ou Descamação" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
+                  <img src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/oleosidade%20extrema%20ou%20descama%C3%A7ao.png" alt="Oleosidade" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';">
                   <div class="symptom-icon-fallback" style="display:none;">✨</div>
                 </div>
-                <div class="card-title-overlay">
-                  <h3>Oleosidade ou descamação</h3>
-                </div>
+                <div class="card-title-overlay"><h3>Oleosidade ou descamação</h3></div>
                 <span class="flip-hint">↻ toque para ver</span>
               </div>
-              <div class="flip-card-back">
-                <h4>🔍 O que está por trás?</h4>
-                <div class="back-content">
-                  <p><strong>Causas:</strong> Dermatite seborreica, fungos.</p>
-                  <p><strong>Exemplo:</strong> "Lavava o cabelo de manhã e à tarde já estava oleoso."</p>
-                </div>
-              </div>
+              <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Dermatite seborreica, fungos.</p><p><strong>Exemplo:</strong> "Lavava o cabelo de manhã e à tarde já estava oleoso."</p></div></div>
             </div>
           </div>
         </div>
@@ -1082,11 +1043,11 @@
     <!-- METODOLOGIA -->
     <section class="methodology">
       <div class="container">
-        <h2>Como funciona a consulta</h2>
+        <h2>Como funciona a avaliação</h2>
         <div class="steps-container">
-          <div class="step"><div class="step-number">1</div><h3>Investigação Completa</h3><p>Anamnese detalhada.</p></div>
-          <div class="step"><div class="step-number">2</div><h3>Exame do Couro Cabeludo</h3><p>Avaliação com equipamentos.</p></div>
-          <div class="step"><div class="step-number">3</div><h3>Plano Personalizado</h3><p>Tratamento individualizado.</p></div>
+          <div class="step"><div class="step-number">1</div><h3>Investigação Completa</h3><p>Anamnese detalhada para compreender seus hábitos, saúde e histórico.</p></div>
+          <div class="step"><div class="step-number">2</div><h3>Exame do Couro Cabeludo</h3><p>Avaliação com equipamentos específicos para diagnóstico preciso.</p></div>
+          <div class="step"><div class="step-number">3</div><h3>Plano Personalizado</h3><p>Tratamento individualizado baseado nas necessidades do seu organismo.</p></div>
         </div>
       </div>
     </section>
@@ -1098,11 +1059,11 @@
         <p class="testimonials-subtitle">Histórias reais de quem recuperou a autoestima</p>
         <div class="testimonials-grid">
           <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Depois dos 30, comecei a notar falhas na barba e queda de cabelo. A Dra. Catarina foi a única que investigou a fundo."</p><div class="testimonial-author"><div class="testimonial-avatar">CM</div><div class="testimonial-info"><h4>Carlos M.</h4><span>35 anos • Moema/SP</span></div></div></div>
-          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Sofri anos com caspa e coceira. A consulta com a Dra. mudou tudo."</p><div class="testimonial-author"><div class="testimonial-avatar">RS</div><div class="testimonial-info"><h4>Ricardo S.</h4><span>42 anos • Brooklin/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Sofri anos com caspa e coceira. A avaliação com a Dra. mudou tudo: diagnóstico preciso e tratamento simples."</p><div class="testimonial-author"><div class="testimonial-avatar">RS</div><div class="testimonial-info"><h4>Ricardo S.</h4><span>42 anos • Brooklin/SP</span></div></div></div>
           <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Com 27 anos comecei a ver meu cabelo ralear. A Dra. mostrou que era possível tratar."</p><div class="testimonial-author"><div class="testimonial-avatar">ER</div><div class="testimonial-info"><h4>Eduardo R.</h4><span>29 anos • Vila Nova Conceição/SP</span></div></div></div>
-          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Tive alopecia areata. Ela acolheu minhas angústias e montou um plano."</p><div class="testimonial-author"><div class="testimonial-avatar">FA</div><div class="testimonial-info"><h4>Fernanda A.</h4><span>31 anos • Indianópolis/SP</span></div></div></div>
-          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Queda pós-parto me deixou abalada. Hoje meu cabelo está mais cheio."</p><div class="testimonial-author"><div class="testimonial-avatar">JP</div><div class="testimonial-info"><h4>Juliana P.</h4><span>38 anos • Campo Belo/SP</span></div></div></div>
-          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Na menopausa perdi muito volume. A Dra. investigou a fundo."</p><div class="testimonial-author"><div class="testimonial-avatar">ML</div><div class="testimonial-info"><h4>Mariana L.</h4><span>45 anos • Planalto Paulista/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Tive alopecia areata. Ela acolheu minhas angústias e montou um plano individualizado."</p><div class="testimonial-author"><div class="testimonial-avatar">FA</div><div class="testimonial-info"><h4>Fernanda A.</h4><span>31 anos • Indianópolis/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Queda pós-parto me deixou abalada. Hoje meu cabelo está mais cheio do que antes."</p><div class="testimonial-author"><div class="testimonial-avatar">JP</div><div class="testimonial-info"><h4>Juliana P.</h4><span>38 anos • Campo Belo/SP</span></div></div></div>
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Na menopausa perdi muito volume. A Dra. investigou a fundo e me sinto cuidada."</p><div class="testimonial-author"><div class="testimonial-avatar">ML</div><div class="testimonial-info"><h4>Mariana L.</h4><span>45 anos • Planalto Paulista/SP</span></div></div></div>
         </div>
       </div>
     </section>
@@ -1111,14 +1072,70 @@
     <section class="faq-section">
       <div class="container">
         <h2>Perguntas Frequentes</h2>
-        <p class="faq-subtitle">Tire suas dúvidas sobre tricologia</p>
+        <p class="faq-subtitle">Dúvidas reais de pacientes respondidas pela Dra. Catarina</p>
+        
         <div class="faq-container">
-          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Qual a diferença entre dermatologista e tricologista?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">O dermatologista trata pele, cabelos e unhas de forma ampla. O tricologista é focado exclusivamente no couro cabeludo e fios.</div></div></div>
-          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Em quanto tempo vejo resultados?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Os primeiros resultados aparecem entre 3 e 4 meses de tratamento consistente.</div></div></div>
-          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Queda de cabelo tem cura?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Depende da causa. Eflúvio telógeno tem recuperação completa. Condições genéticas são controladas.</div></div></div>
-          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Preciso levar exames?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Não é obrigatório, mas ajuda. Se tiver exames recentes, traga no dia.</div></div></div>
-          <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Homens podem fazer tratamento?</span><div class="faq-arrow"></div></button><div class="faq-answer"><div class="faq-answer-content">Sim! Calvície masculina e falhas na barba são queixas comuns no consultório.</div></div></div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Quanto tempo demora para o tratamento fazer efeito?</span>
+              <div class="faq-arrow"></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                O ciclo capilar é naturalmente lento. Os primeiros resultados visíveis aparecem entre <strong>3 e 4 meses</strong> de tratamento consistente. A queda começa a reduzir nas primeiras semanas, mas o crescimento de novos fios leva mais tempo. Cada paciente evolui de forma única, e o acompanhamento com fotos comparativas ajuda a visualizar o progresso mesmo nas fases iniciais.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Vitaminas para cabelo realmente funcionam?</span>
+              <div class="faq-arrow"></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Funcionam <strong>apenas se houver deficiência comprovada</strong>. Tomar biotina, zinco ou vitamina D sem necessidade não acelera o crescimento e pode mascarar a causa real da queda. Por isso, a avaliação com exames laboratoriais é essencial: só suplementamos o que está em falta. Automedicação com "vitaminas milagrosas" é um dos erros mais comuns que vejo no consultório.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>A queda de cabelo pode estar relacionada à minha saúde?</span>
+              <div class="faq-arrow"></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>Sim, e muito.</strong> O cabelo é um marcador da saúde sistêmica. Alterações na tireoide, anemia, ovário policístico, menopausa, estresse crônico e até infecções silenciosas podem se manifestar primeiro nos fios. Por isso a tricologia investiga o paciente como um todo — não apenas o couro cabeludo. Muitas vezes, tratar a causa de base resolve a queda sem precisar de produtos caros.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>O tratamento é igual para todo mundo?</span>
+              <div class="faq-arrow"></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>Nunca.</strong> Cada paciente tem um histórico, um estilo de vida, uma genética e um organismo únicos. Dois pacientes com o mesmo diagnóstico podem ter planos de tratamento completamente diferentes. É por isso que falo em <strong>cuidado individualizado</strong>: o que funciona para uma pessoa pode não funcionar para outra. Não existe fórmula pronta — existe ciência aplicada ao seu caso.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>Caspa pode causar queda de cabelo?</span>
+              <div class="faq-arrow"></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>Indiretamente, sim.</strong> A caspa (dermatite seborreica) causa inflamação no couro cabeludo, coceira e descamação. A inflamação crônica pode enfraquecer os folículos e acelerar a queda. Além disso, coçar com frequência causa trauma mecânico nos fios. A boa notícia: tratando a inflamação, o couro cabeludo se recupera e a queda associada costuma cessar rapidamente.
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="faq-cta-wrapper">
           <button class="cta-button btn-outline" id="openQuestionModalBtn">✉️ Enviar Minha Pergunta</button>
         </div>
@@ -1130,8 +1147,8 @@
       <div class="container final-cta-inner">
         <div class="final-text">
           <h2>Seu cabelo merece um olhar científico e humano.</h2>
-          <p>Agende agora e comece a transformar sua relação com seus fios.</p>
-          <a href="#" class="cta-button cta-pulse" id="finalCtaButton">Agendar Minha Consulta Agora</a>
+          <p>Agende agora sua avaliação e comece a transformar sua relação com seus fios.</p>
+          <a href="#" class="cta-button cta-pulse" id="finalCtaButton">Agendar Minha Avaliação Agora</a>
         </div>
         <div class="final-logo-wrapper">
           <img src="https://drive.google.com/thumbnail?id=1Ko1A5ihjYENVjdqPsG6krJqweKgKspbi&sz=w600" 
@@ -1171,8 +1188,8 @@
       const whatsappNumber = '5511915683939';
       
       function buildWhatsAppMessage(name, phone) {
-        let m = 'Olá! Gostaria de agendar uma consulta com a Dra. Catarina Koa.';
-        if (name && name.trim()) m = `Olá! Meu nome é ${name.trim()}. Gostaria de agendar uma consulta com a Dra. Catarina Koa.`;
+        let m = 'Olá! Gostaria de agendar uma avaliação com a Dra. Catarina Koa.';
+        if (name && name.trim()) m = `Olá! Meu nome é ${name.trim()}. Gostaria de agendar uma avaliação com a Dra. Catarina Koa.`;
         if (phone && phone.trim()) m += ` Meu telefone: ${phone.trim()}.`;
         return encodeURIComponent(m);
       }
