@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
@@ -449,23 +448,15 @@
       left: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
     }
 
-    .flip-card-front .symptom-icon-img {
+    .flip-card-front .symptom-video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .flip-card-front .symptom-icon-fallback {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      background: linear-gradient(135deg, #fdf9f3, #f5ede0);
+      pointer-events: none;
     }
 
     .flip-card-front .card-title-overlay {
@@ -973,12 +964,14 @@
 <h2>Quando procurar um Tricologista?</h2>
 <p class="symptoms-subtitle">Toque nos cards para entender cada sinal</p>
 <div class="cards-grid">
+<!-- CARD 1: Queda excessiva -->
 <div class="flip-card" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
 <div class="flip-card-front">
 <div class="symptom-image-wrapper">
-<img alt="Queda de Cabelo" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';" src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/queda%20de%20Cabelo.png"/>
-<div class="symptom-icon-fallback" style="display:none;">💧</div>
+<video class="symptom-video" autoplay loop muted playsinline preload="auto">
+  <source src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/videos/queda%20excessiva.mp4" type="video/mp4"/>
+</video>
 </div>
 <div class="card-title-overlay"><h3>Queda excessiva</h3></div>
 <span class="flip-hint">↻ toque para ver</span>
@@ -986,12 +979,14 @@
 <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Estresse, pós-parto, tireoide, deficiência de ferro.</p><p><strong>Exemplo:</strong> "Perdi muito cabelo depois de uma fase estressante."</p></div></div>
 </div>
 </div>
+<!-- CARD 2: Afinamento capilar -->
 <div class="flip-card" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
 <div class="flip-card-front">
 <div class="symptom-image-wrapper">
-<img alt="Afinamento" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';" src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/afinamento%20capilar.png"/>
-<div class="symptom-icon-fallback" style="display:none;">🌱</div>
+<video class="symptom-video" autoplay loop muted playsinline preload="auto">
+  <source src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/videos/afinamento%20capilar.mp4" type="video/mp4"/>
+</video>
 </div>
 <div class="card-title-overlay"><h3>Afinamento capilar</h3></div>
 <span class="flip-hint">↻ toque para ver</span>
@@ -999,12 +994,14 @@
 <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Alopecia androgenética, envelhecimento, químicas.</p><p><strong>Exemplo:</strong> "Meu rabo de cavalo foi ficando cada vez mais fino."</p></div></div>
 </div>
 </div>
+<!-- CARD 3: Falhas no couro cabeludo -->
 <div class="flip-card" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
 <div class="flip-card-front">
 <div class="symptom-image-wrapper">
-<img alt="Falhas" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';" src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/falhas%20no%20couro%20cabeludo.png"/>
-<div class="symptom-icon-fallback" style="display:none;">🌀</div>
+<video class="symptom-video" autoplay loop muted playsinline preload="auto">
+  <source src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/videos/falhas%20no%20couro%20cabeludo.mp4" type="video/mp4"/>
+</video>
 </div>
 <div class="card-title-overlay"><h3>Falhas no couro cabeludo</h3></div>
 <span class="flip-hint">↻ toque para ver</span>
@@ -1012,12 +1009,14 @@
 <div class="flip-card-back"><h4>🔍 O que está por trás?</h4><div class="back-content"><p><strong>Causas:</strong> Alopecia areata, tração, fungos.</p><p><strong>Exemplo:</strong> "Acordei com uma falha redonda."</p></div></div>
 </div>
 </div>
+<!-- CARD 4: Oleosidade ou descamação -->
 <div class="flip-card" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
 <div class="flip-card-front">
 <div class="symptom-image-wrapper">
-<img alt="Oleosidade" class="symptom-icon-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.symptom-icon-fallback').style.display='flex';" src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/oleosidade%20extrema%20ou%20descama%C3%A7ao.png"/>
-<div class="symptom-icon-fallback" style="display:none;">✨</div>
+<video class="symptom-video" autoplay loop muted playsinline preload="auto">
+  <source src="https://raw.githubusercontent.com/musasimorro/Dra-Catarina/main/videos/descama%C3%A7%C3%A3o.mp4" type="video/mp4"/>
+</video>
 </div>
 <div class="card-title-overlay"><h3>Oleosidade ou descamação</h3></div>
 <span class="flip-hint">↻ toque para ver</span>
@@ -1121,6 +1120,11 @@ A avaliação <strong>online</strong> dura aproximadamente <strong>60 minutos</s
 </footer>
 <script>
     (function() {
+      // Ajuste de reprodução suave/lenta nos vídeos dos cards
+      document.querySelectorAll('.symptom-video').forEach(video => {
+        video.playbackRate = 0.6;
+      });
+
       const leadModal = document.getElementById('leadModal');
       const closeLeadBtn = document.getElementById('closeLeadModalBtn');
       const modalName = document.getElementById('modalName');
